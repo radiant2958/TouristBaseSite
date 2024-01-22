@@ -1,0 +1,57 @@
+{% extends 'base/index.html' %}
+{% block title %}Новости{% endblock %}
+{% block content %}
+    {% load static %}
+
+    <!-- Breadcrumb Section Begin -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2>Новости</h2>
+                        <div class="bt-option">
+                            <a href="{% url 'title_base' %}">Главная</a>
+                            <span>Новости</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Blog Section Begin -->
+    <section class="blog-section blog-page spad">
+    <div class="container">
+        <div class="row">
+
+            {% if news_list %}
+                {% for news_item in news_list %}
+                    <div class="col-lg-4 mx-auto d-block">
+                        <div class="blog-item">
+                            <div class="bi-text">
+                                <span class="b-tag">{{ news_item.author }}</span>
+                                <h4>{{ news_item.title }}</h4>
+                                <div class="b-time"><i class="icon_clock_alt"></i> {{ news_item.pub_date|date:"d F, Y" }}</div>
+                                <p>{{ news_item.content|truncatewords:30 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-lg-4 mx-auto d-block">
+                    <div class="blog-item">
+                        <div class="bi-text">
+                            <h4>Пока новостей нет.</h4>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+    </section>
+    <!-- Blog Section End -->
+
+    {% endblock %}

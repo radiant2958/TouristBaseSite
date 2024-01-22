@@ -1,0 +1,88 @@
+{% extends 'base/index.html' %}
+{% block title %}Дом с видом на реку{% endblock %}
+{% block content %}
+    {% load static %}
+
+    <!-- Breadcrumb Section Begin -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2>Наши дома</h2>
+                        <div class="bt-option">
+                            <a href="{% url 'title_base' %}">Главная</a>
+                            <span>Дома</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Room Details Section Begin -->
+    <section class="room-details-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="room-details-item">
+                        <img src="{% static 'img/room/home.jpg' %}" alt="">
+                        <img src="{% static 'img/room/home/IMG_6227.jpg' %}" alt="">
+                        <img src="{% static 'img/room/home/IMG_6228.jpg' %}" alt="">
+                        <img src="{% static 'img/room/home/IMG_6233.jpg' %}" alt="">
+                        <img src="{% static 'img/room/home/IMG_6236.jpg' %}" alt="">
+
+                        <div class="rd-text">
+                            <div class="rd-title">
+                                <h3>Дом 4-х местный с видом на реку</h3>
+                                <div class="rdt-right">
+                                  
+                                </div>
+                            </div>
+                            <h2>от 5000 руб<span>/за ночь</span></h2>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">Размер:</td>
+                                        <td>30 кв.м</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Вместимость:</td>
+                                        <td>до 4 человек</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">В доме:</td>
+                                        <td>Кровать, диван, стол</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Сервис:</td>
+                                        <td>Wifi, холодильник, санузел с душем</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="f-para">Двухкомнатный дом с живописным видом на реку предоставляет комфортное и уютное проживание для отдыхающих.
+                                 В одной из комнат размещена двуспальная кровать, что создаёт атмосферу уединения и романтики. Вторая комната оснащена удобным диваном, который при желании может быть использован как спальное место. 
+                                Для вашего комфорта в доме имеется стол — идеальное место для утреннего кофе или вечерних угощений.
+                                К вашим услугам также предоставлен холодильник для сохранения свежести продуктов и чайник для приготовления горячих напитков. Дополнительным преимуществом является наличие в номере санузла с туалетом и умывальником, что обеспечивает максимальный комфорт проживания. 
+                                Насладитесь умиротворяющим видом на реку, не выходя из дома, и получите незабываемые впечатления от вашего отдыха.</p>
+  
+                        </div>
+                    </div>
+                    
+                            
+                            
+                        </div>
+                   
+                </div>
+                <div class="col-lg-4">
+              
+                            <button type="submit">Отправить заявку на бронирование</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Room Details Section End -->
+    {% endblock %}

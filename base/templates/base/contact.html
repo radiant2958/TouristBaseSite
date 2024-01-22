@@ -1,0 +1,41 @@
+{% extends 'base/index.html' %}
+{% block title %}Контакты{% endblock %}
+{% block content %}
+    {% load static %}
+
+    <!-- Contact Section Begin -->
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mx-auto d-block">
+                    <div class="contact-text">
+                        <h3>Контактная информация</h3>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="c-o">Адрес:</td>
+                                    <td>Республика Алтай, с. Чемал, Урочище Ареда, 4в</td>
+                                </tr>
+                                <tr>
+                                    <td class="c-o">Телефон:</td>
+                                    <td>+7-913-690-0485</td>
+                                </tr>
+                                <tr>
+                                    <td class="c-o">Email:</td>
+                                    <td>radiant2958@gmail.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="map">
+                <iframe
+                    src="https://go.2gis.com/5ajhx"
+                    height="470" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+    {% endblock %}

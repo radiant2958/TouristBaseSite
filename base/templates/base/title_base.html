@@ -1,0 +1,71 @@
+
+{% extends 'base/index.html' %}
+{% block title %}Главная страница{% endblock %}
+{% block content %}
+    {% load static %}
+
+    <!-- Hero Section Begin -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="hero-text">
+                        <h1>Усадьба на Чемалке</h1>
+                        <p>Это прекрасное место где можно насладиться природой и отдохнуть от городской суеты.</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
+                    <div class="booking-form">
+                        <h3>Забронируй свой дом</h3>
+                        <form method="post" action="{% url 'title_base' %}">
+                             {% csrf_token %}
+                             {{ form.as_p }}
+                             <button type="submit">Забронировать</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-slider owl-carousel">
+            <div class="hs-item set-bg" data-setbg="{% static 'img/hero/IMG_6318.jpg' %}"></div>
+            <div class="hs-item set-bg" data-setbg="{% static 'img/hero/IMG_4621.jpg' %}"></div>
+            <div class="hs-item set-bg" data-setbg="{% static 'img/hero/IMG_4266.jpg' %}"></div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <section class="aboutus-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <div class="section-title">
+                            <span>О нас</span>
+                            <h2>Усадьба на Чемалке</h2>
+                        </div>
+                        <p class="f-para">Ваше идеальное убежище в сердце горного Алтая!</p>
+                        <p class="s-para">Наши уютные домики расположены в живописном месте рядом с селом Чемал,
+                            где нетронутая природа в сочетании с горным воздухом создает атмосферу настоящего отдыха
+                            и умиротворения.</p>
+                        <p>Окруженные лесом, 8 наших домиков, как трехместных, так и четырехместных, возвышаются на берегу реки Чемал, предоставляя посетителям захватывающие виды и уникальную возможность насладиться пением птиц, шумом реки и ароматом хвои прямо у порога своего жилища.</p>
+                        <a href="{% url 'about-us' %}" class="primary-btn about-btn">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-pic">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img src="{% static 'img/about/IMG_9892.jpg' %}" alt="">
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="{% static 'img/about/IMG_9889.jpg' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}
+                            
