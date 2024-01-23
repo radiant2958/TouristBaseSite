@@ -31,10 +31,10 @@ TourBaseWeb/
 └── requirements.txt
 
 
-- [base] - Основное приложение.
-migrations/: Миграции базы данных.
-templates/: HTML файлы приложения.
-admin.py, apps.py, forms.py, models.py, tests.py, urls.py, views.py: Основные файлы приложения, включая настройки административной панели, формы, модели, тесты, маршруты URL и представления.
+-  base/: Основное приложение.
+- migrations/: Миграции базы данных.
+- templates/: HTML файлы приложения.
+- admin.py, apps.py, forms.py, models.py, tests.py, urls.py, views.py: Основные файлы приложения, включая настройки административной панели, формы, модели, тесты, маршруты URL и представления.
 base_backend/: Настройки проекта.
 asgi.py, settings.py, urls.py, wsgi.py: Конфигурационные файлы для ASGI и WSGI, настройки проекта и маршруты URL.
 static/: Статические файлы (CSS, JavaScript, изображения).
