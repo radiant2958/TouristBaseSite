@@ -5,7 +5,7 @@ TourBaseWeb — это веб-приложение туристической б
 
 ##Структура проекта 
 
-![Схема](https://drive.google.com/file/d/14qIA-bnOLoqATWVF6oLXbyVMdscC8OPD/view?usp=sharing)
+![Схема](static/img/Снимок экрана 2024-01-23 в 18.00.04.png)
 
 
 -  base/: Основное приложение.
