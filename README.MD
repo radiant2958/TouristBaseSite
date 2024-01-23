@@ -5,7 +5,7 @@ TourBaseWeb — это веб-приложение туристической б
 
 ##Структура проекта 
 
-<img width="812" alt="Снимок экрана 2023-10-17 в 20 53 50" src="https://github.com/radiant2958/TourBaseWeb/static/img/Снимок экрана 2024-01-23 в 18.00.04.png">
+<img width="812" alt="Снимок экрана 2023-10-17 в 20 53 50" src="https://github.com/radiant2958/TourBaseWeb/static/img/shema.png">
 static/img/Снимок экрана 2024-01-23 в 18.00.04.png
 ![Схема](static/img/Снимок экрана 2024-01-23 в 18.00.04.png)
 ![Пример изображения](static/img/Снимок экрана 2024-01-23 в 18.00.04.png)
