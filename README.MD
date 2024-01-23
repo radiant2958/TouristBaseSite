@@ -3,46 +3,23 @@ TourBaseWeb — это веб-приложение туристической б
 Проект включает в себя функционал для бронирования, управления клиентской информацией и интеграции с Telegram для уведомлений о заявки на бронирование.
 
 
-* Структура проекта *
+##Структура проекта 
 
-TourBaseWeb/
-├── base/              
-│   ├── migrations/    
-│   ├── templates/     
-│   │   └── base/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── base_backend/
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── static/
-├── .gitignore
-├── manage.py
-├── pytest.ini
-├── README.md
-└── requirements.txt
+
 
 
 -  base/: Основное приложение.
 - migrations/: Миграции базы данных.
 - templates/: HTML файлы приложения.
 - admin.py, apps.py, forms.py, models.py, tests.py, urls.py, views.py: Основные файлы приложения, включая настройки административной панели, формы, модели, тесты, маршруты URL и представления.
-base_backend/: Настройки проекта.
-asgi.py, settings.py, urls.py, wsgi.py: Конфигурационные файлы для ASGI и WSGI, настройки проекта и маршруты URL.
-static/: Статические файлы (CSS, JavaScript, изображения).
-.gitignore: Список исключений для Git.
-.env.example: Пример файла .env
-manage.py: Утилита для управления Django проектом.
-pytest.ini: Конфигурация для pytest.
-requirements.txt: Список зависимостей Python.
+- base_backend/: Настройки проекта.
+- asgi.py, settings.py, urls.py, wsgi.py: Конфигурационные файлы для ASGI и WSGI, настройки проекта и маршруты URL.
+- static/: Статические файлы (CSS, JavaScript, изображения).
+- .gitignore: Список исключений для Git.
+- .env.example: Пример файла .env
+- manage.py: Утилита для управления Django проектом.
+- pytest.ini: Конфигурация для pytest.
+- requirements.txt: Список зависимостей Python.
 
 
 Установка и запуск
