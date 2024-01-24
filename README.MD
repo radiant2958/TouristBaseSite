@@ -6,7 +6,7 @@ TourBaseWeb — это веб-приложение туристической б
 
 ## Структура проекта 
 
-<img width="812" alt="shema" src="static/img/shema.png">
+<img width="812" alt="shema" src="static/img/shema2.png">
 
 
 __base/__
