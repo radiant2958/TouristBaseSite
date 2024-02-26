@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from base.tests import error400
 urlpatterns = [
     path('', views.title_base, name='title_base'),
     path('about-us', views.about, name='about-us'),
@@ -12,7 +13,10 @@ urlpatterns = [
     path('room2/', views.roomSecond, name='roomSecond'),
     path('room3/', views.roomThird, name="roomThird"),
     path('room4/', views.roomFourth, name="roomFourth"),
-    path('room5/', views.roomsTriple, name="roomsTriple")
+    path('room5/', views.roomsTriple, name="roomsTriple"),
+    path('handler400/',views.handler400, name='handler400'),
+    path('handler500/', views.handler500, name='handler500'),
+    path('validate_user_phone/', error400.validate_user_phone, name='error400')
     
 
 ]

@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
-from .form import BookingForm
-from .models import Booking, Client, News
-from .telegram import send_message_to_telegram
+from base.models import News
 import asyncio
 from dotenv import load_dotenv
 import os
+from base.telegram_bot.tasks import send_message_to_telegram
+from base.bookings.forms import BookingForm
+from .bookings.views import format_booking_message
+from .clients import views
+from django.contrib import messages
+from django.template import RequestContext
 
 load_dotenv()  
 
@@ -15,60 +19,29 @@ CHAT_ID = os.getenv('CHAT_ID')
 def index(request):
     return render(request, 'base/index.html')
 
-
-
 def title_base(request):
     if request.method == "POST":
-        form = BookingForm(request.POST)
-        if form.is_valid():
-            booking = form.save()
-            
-            message = f"Новая заявка на бронирование\n" \
-                      f"Телефон: {booking.client.phone}\n" \
-                      f"Имя: {booking.client.name}\n" \
-                      f"Даты бронирования: с {booking.date_in} по {booking.date_out}\n" \
-                      f"Количество гостей: {booking.guests}\n" \
-                      f"Количество домов: {booking.rooms}"
-
-            phone = form.cleaned_data.get('phone')
-            name = form.cleaned_data.get('name')
-            date_in = form.cleaned_data.get('date_in')
-            date_out = form.cleaned_data.get('date_out')
-            guests = form.cleaned_data.get('guests')
-            rooms = form.cleaned_data.get('rooms')
-            
-            client, created = Client.objects.get_or_create(
-                phone=phone, defaults={'name': name}
-            )
-            if not created:
-                message = f"Новая заявка на бронирование\n" \
-                          f"Телефон {phone}\n" \
-                          f"Имя: {name}\n" \
-                          f"Даты бронирования: с {date_in} по {date_out}\n" \
-                          f"Количество гостей: {guests}\n" \
-                          f"Количество домов: {rooms}"
-               
-            else:
-                form.save()
-                message = f"Заявка на бронирование!\n" \
-                          f"Пользователь с номером {phone} уже существует в базе данных!\n" \
-                          f"Имя: {client.name}\n" \
-                          f"Даты бронирования: с {date_in} по {date_out}\n" \
-                          f"Количество гостей: {guests}\n" \
-                          f"Количество домов: {rooms}"
-            
-            try:
+        booking_form = BookingForm(request.POST)
+        if booking_form.is_valid():
+            booking = booking_form.save(commit=False)
+            first_part_message = views.create_client(booking.name, booking.phone)
+            second_part_message = format_booking_message(booking)
+            final_message = first_part_message + second_part_message
         
-                response_status, response_text = asyncio.run(send_message_to_telegram(CHAT_ID, message, TOKEN))
-                print(f"Telegram API Response: Status - {response_status}, Text - {response_text}")
+            booking.save()  
+            try:
+                asyncio.run(send_message_to_telegram(CHAT_ID, final_message, TOKEN))
+                messages.success(request, "Бронирование успешно создано и сообщение отправлено.")
             except Exception as e:
-                print(f"Error: {e}")
+                messages.error(request, f"Ошибка при отправке сообщения: {e}")
             
             return redirect('success_page')
+        else:
+            redirect('handler400')
     else:
-        form = BookingForm()
+        booking_form = BookingForm()
     
-    return render(request, 'base/title_base.html', {'form': form})
+    return render(request, 'base/title_base.html', {'form': booking_form})
 
 
 def about(request):
@@ -104,4 +77,13 @@ def roomFourth(request):
 
 def roomsTriple(request):
     return render(request, 'base/room5-details.html')
+
+def handler400(request, exception):
+    return render(request, 'base/errors/400.html', status=400)
+
+
+def handler500(request):
+    response = render(request, 'base/errors/500.html', {})
+    response.status_code = 500
+    return response
 
