@@ -16,7 +16,9 @@ urlpatterns = [
     path('room5/', views.roomsTriple, name="roomsTriple"),
     path('handler400/',views.handler400, name='handler400'),
     path('handler500/', views.handler500, name='handler500'),
-    path('validate_user_phone/', error400.validate_user_phone, name='error400')
+    path('validate_user_phone/', error400.validate_user_phone, name='error400'),
+    path('index', views.index, name='index'),
+    
     
 
 ]

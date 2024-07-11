@@ -2,45 +2,33 @@
 {% block title %}Дом с видом на реку{% endblock %}
 {% block content %}
     {% load static %}
-
+    <script src="{% static 'js/main2.js' %}"></script>
     <!-- Breadcrumb Section Begin -->
-    <div class="breadcrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <h2>Наши дома</h2>
-                        <div class="bt-option">
-                            <a href="{% url 'title_base' %}">Главная</a>
-                            <span>Дома</span>
-                        </div>
-                    </div>
+    <div class="bread-section">
+        <div class="brea-text">
+            <h2>Наши дома</h2>
+                <div class="button-option">
+                    <a href="{% url 'title_base' %}">Главная</a>
+                    <span>Дома</span>
                 </div>
-            </div>
         </div>
-    </div>
+    </div> 
+
     <!-- Breadcrumb Section End -->
 
     <!-- Room Details Section Begin -->
-    <section class="room-details-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="room-details-item">
-                        <img src="{% static 'img/room/home.jpg' %}" alt="">
-                        <img src="{% static 'img/room/home/IMG_6227.jpg' %}" alt="">
-                        <img src="{% static 'img/room/home/IMG_6228.jpg' %}" alt="">
-                        <img src="{% static 'img/room/home/IMG_6233.jpg' %}" alt="">
-                        <img src="{% static 'img/room/home/IMG_6236.jpg' %}" alt="">
-
-                        <div class="rd-text">
-                            <div class="rd-title">
+    <div class="room-details">
+                <div class="conteiner-room">
+                    <div class="details-item">
+                        <img src="{% static 'img/room/home.jpg' %}" alt="" onclick="enlargeImage('/static/img/room/home.jpg')">
+                        <img src="{% static 'img/home/IMG_6227.jpg' %}" alt="" onclick="enlargeImage('/static/img/home/IMG_6227.jpg')">
+                        <img src="{% static 'img/home/IMG_6228.jpg' %}" alt="" onclick="enlargeImage('/static/img/home/IMG_6228.jpg')">
+                        <img src="{% static 'img/home/IMG_6233.jpg' %}" alt="" onclick="enlargeImage('/static/img/home/IMG_6233.jpg')">
+                        <img src="{% static 'img/home/IMG_6236.jpg' %}" alt="" onclick="enlargeImage('/static/img/home/IMG_6236.jpg')">
+                    </div>
+                        <div class="room-text">
                                 <h3>Дом 4-х местный с видом на реку</h3>
-                                <div class="rdt-right">
-                                  
-                                </div>
-                            </div>
-                            <h2>от 5000 руб<span>/за ночь</span></h2>
+                                <h2>от 5000 руб<span>/за ночь</span></h2>
                             <table>
                                 <tbody>
                                     <tr>
@@ -68,21 +56,66 @@
                                 Насладитесь умиротворяющим видом на реку, не выходя из дома, и получите незабываемые впечатления от вашего отдыха.</p>
   
                         </div>
-                    </div>
-                    
-                            
-                            
-                        </div>
-                   
+                
                 </div>
-                <div class="col-lg-4">
               
-                            <button type="submit">Отправить заявку на бронирование</button>
-                        </form>
-                    </div>
+                <div class="col-lg-4">
+                    <div class="room-booking">
+                    <h4> Забронировать этот дом </h4> 
+                    <p></p>
+                    <form method="post" action="{% url 'title_base' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_name">Имя:</label>
+                            <input type="text" name="name" id="id_name" required maxlength="100" class="form-control">
+                            {% if form.name.errors %}
+                                <div class="alert alert-danger">{{ form.name.errors.as_text }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_phone">Номер телефона:</label>
+                            <input type="text" name="phone" id="id_phone" required maxlength="15" class="form-control">
+                            {% if form.phone.errors %}
+                                <div class="alert alert-danger">{{ form.phone.errors.as_text }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_date_in">Заезд:</label>
+                            <input type="date" name="date_in" id="id_date_in" required class="form-control">
+                            {% if form.date_in.errors %}
+                                <div class="alert alert-danger">{{ form.date_in.errors.as_text }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_date_out">Выезд:</label>
+                            <input type="date" name="date_out" id="id_date_out" required class="form-control">
+                            {% if form.date_out.errors %}
+                                <div class="alert alert-danger">{{ form.date_out.errors.as_text }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_guests">Количество гостей:</label>
+                            <input type="number" name="guests" id="id_guests" required class="form-control" min="1">
+                            {% if form.guests.errors %}
+                                <div class="alert alert-danger">{{ form.guests.errors.as_text }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_rooms">Количество домов:</label>
+                            <input type="number" name="rooms" id="id_rooms" required class="form-control" min="1" max="8">
+                            {% if form.rooms.errors %}
+                                <div class="alert alert-danger">{{ form.rooms.errors.as_text }}</div>
+                            {% endif %}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                    </form>
+                    </div> 
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- Room Details Section End -->
+            
+            
+    </div>
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
     {% endblock %}

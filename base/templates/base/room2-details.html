@@ -3,61 +3,48 @@
 {% block content %}
     {% load static %}
     
+    <script src="{% static 'js/main2.js' %}"></script>
     <!-- Breadcrumb Section Begin -->
-    <div class="breadcrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <h2>Наши дома</h2>
-                        <div class="bt-option">
-                            <a href="{% url 'title_base' %}">Главная</a>
-                            <span>Дома</span>
-                        </div>
-                    </div>
+    <div class="bread-section">
+        <div class="brea-text">
+            <h2>Наши дома</h2>
+                <div class="button-option">
+                    <a href="{% url 'title_base' %}">Главная</a>
+                    <span>Дома</span>
                 </div>
-            </div>
         </div>
-    </div>
-    <!-- Breadcrumb Section End -->
-
+    </div> 
     <!-- Room Details Section Begin -->
-    <section class="room-details-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="room-details-item">
+    <div class="room-details">
+        <div class="conteiner-room">
+            <div class="details-item">
                         <img src="{% static 'img/room/home2.jpg' %}" alt="">
-                        <img src="{% static 'img/room/home2/IMG_6248.jpg' %}" alt="">
-                        <img src="{% static 'img/room/home2/IMG_6253.jpg' %}" alt="">
-
-                        <div class="rd-text">
-                            <div class="rd-title">
+                        <img src="{% static 'img/room/home2/bedroom.png' %}" alt="">
+                        <img src="{% static 'img/room/home2/livingroom.png' %}" alt="">
+                    </div>
+                    <div class="room-text">
                                 <h3>Дом №2</h3>
-                                <div class="rdt-right">
-                                </div>
-                            </div>
-                            <h2>от 5000 руб<span>/за ночь</span></h2>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">Размер:</td>
-                                        <td>30 кв.м</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Вместимость:</td>
-                                        <td>до 4 человек</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">В доме:</td>
-                                        <td>Кровать, диван, стол</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Сервис:</td>
-                                        <td>Wifi, холодильник, санузел с душем</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                <h2>от 5000 руб<span>/за ночь</span></h2>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="r-o">Размер:</td>
+                                    <td>30 кв.м</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Вместимость:</td>
+                                    <td>до 4 человек</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">В доме:</td>
+                                    <td>Кровать, диван, стол</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Сервис:</td>
+                                    <td>Wifi, холодильник, санузел с душем</td>
+                                </tr>
+                            </tbody>
+                        </table>
                             <p class="f-para">Двухкомнатный дом №2 идеально подходит для комфортного отдыха.
                                 Первая комната оборудована двуспальной кроватью, обещая спокойный и крепкий сон.
                                 Во второй комнате находится уютный диван, который может служить отличным местом для чтения или просмотра телевизора, 
@@ -70,37 +57,66 @@
                                 
                                 <p>Выбрав дом №2, вы получите комфортное и уединенное пространство для вашего отпуска или короткого визита.</p>
   
+                            </div>  
                         </div>
-                    </div>
-                    
-                </div>
-                <div class="col-lg-4">
-                    <div class="room-booking">
-                        <h3>Забронировать</h3>
-                        <form action="#">
-                            <div class="check-date">
-                                <label for="date-in">Заезд:</label>
-                                <input type="text" class="date-input" id="date-in">
-                                <i class="icon_calendar"></i>
-                            </div>
-                            <div class="check-date">
-                                <label for="date-out">Выезд:</label>
-                                <input type="text" class="date-input" id="date-out">
-                                <i class="icon_calendar"></i>
-                            </div>
-                            <div class="select-option">
-                                <label for="guest">Коллиество гостей:</label>
-                                <select id="guest">
-                                    <option value="">4 гостя</option>
-                                </select>
-                            </div>
-                            <button type="submit">Отправить заявку на бронирование</button>
-                        </form>
-                    </div>
-                </div>
+                        <div class="col-lg-4">
+                            <div class="room-booking">
+                            <h4> Забронировать этот дом </h4> 
+                            <p></p>
+                            <form method="post" action="{% url 'title_base' %}">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="id_name">Имя:</label>
+                                    <input type="text" name="name" id="id_name" required maxlength="100" class="form-control">
+                                    {% if form.name.errors %}
+                                        <div class="alert alert-danger">{{ form.name.errors.as_text }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_phone">Номер телефона:</label>
+                                    <input type="text" name="phone" id="id_phone" required maxlength="15" class="form-control">
+                                    {% if form.phone.errors %}
+                                        <div class="alert alert-danger">{{ form.phone.errors.as_text }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_date_in">Заезд:</label>
+                                    <input type="date" name="date_in" id="id_date_in" required class="form-control">
+                                    {% if form.date_in.errors %}
+                                        <div class="alert alert-danger">{{ form.date_in.errors.as_text }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_date_out">Выезд:</label>
+                                    <input type="date" name="date_out" id="id_date_out" required class="form-control">
+                                    {% if form.date_out.errors %}
+                                        <div class="alert alert-danger">{{ form.date_out.errors.as_text }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_guests">Количество гостей:</label>
+                                    <input type="number" name="guests" id="id_guests" required class="form-control" min="1">
+                                    {% if form.guests.errors %}
+                                        <div class="alert alert-danger">{{ form.guests.errors.as_text }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_rooms">Количество домов:</label>
+                                    <input type="number" name="rooms" id="id_rooms" required class="form-control" min="1" max="8">
+                                    {% if form.rooms.errors %}
+                                        <div class="alert alert-danger">{{ form.rooms.errors.as_text }}</div>
+                                    {% endif %}
+                                </div>
+                                <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                            </form>
+                            </div> 
+                        </div>
             </div>
-        </div>
-    </section>
+            <div id="myModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="modalImg">
+            </div>
+        
     <!-- Room Details Section End -->
 
     {% endblock %}

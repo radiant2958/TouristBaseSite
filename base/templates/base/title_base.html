@@ -3,9 +3,12 @@
 {% block title %}Главная страница{% endblock %}
 {% block content %}
     {% load static %}
-
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+    
     <!-- Hero Section Begin -->
-    <section class="hero-section">
+    <div class="hero-section" style="background-image: url('{% static 'img/hero/main.png' %}');">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -16,26 +19,65 @@
                 </div>
                 <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                     <div class="booking-form">
-                        <h3>Забронируй свой дом</h3>
+                        <h4>Забронируй свой дом</h4>
                         <form method="post" action="{% url 'title_base' %}">
-                             {% csrf_token %}
-                             {{ form.as_p }}
-                             <button type="submit">Забронировать</button>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="id_name">Имя:</label>
+                                <input type="text" name="name" id="id_name" required maxlength="100" class="form-control">
+                                {% if form.name.errors %}
+                                    <div class="alert alert-danger">{{ form.name.errors.as_text }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_phone">Номер телефона:</label>
+                                <input type="text" name="phone" id="id_phone" required maxlength="15" class="form-control">
+                                {% if form.phone.errors %}
+                                    <div class="alert alert-danger">{{ form.phone.errors.as_text }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_date_in">Заезд:</label>
+                                <input type="date" name="date_in" id="id_date_in" required class="form-control">
+                                {% if form.date_in.errors %}
+                                    <div class="alert alert-danger">{{ form.date_in.errors.as_text }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_date_out">Выезд:</label>
+                                <input type="date" name="date_out" id="id_date_out" required class="form-control">
+                                {% if form.date_out.errors %}
+                                    <div class="alert alert-danger">{{ form.date_out.errors.as_text }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_guests">Количество гостей:</label>
+                                <input type="number" name="guests" id="id_guests" required class="form-control" min="1">
+                                {% if form.guests.errors %}
+                                    <div class="alert alert-danger">{{ form.guests.errors.as_text }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_rooms">Количество домов:</label>
+                                <input type="number" name="rooms" id="id_rooms" required class="form-control" min="1" max="8">
+                                {% if form.rooms.errors %}
+                                    <div class="alert alert-danger">{{ form.rooms.errors.as_text }}</div>
+                                {% endif %}
+                            </div>
+                            <button type="submit" class="btn btn-primary">Забронировать</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="hero-slider owl-carousel">
-            <div class="hs-item set-bg" data-setbg="{% static 'img/hero/IMG_6318.jpg' %}"></div>
-            <div class="hs-item set-bg" data-setbg="{% static 'img/hero/IMG_4621.jpg' %}"></div>
-            <div class="hs-item set-bg" data-setbg="{% static 'img/hero/IMG_4266.jpg' %}"></div>
-        </div>
-    </section>
+        
+     
+    </div>
+
     <!-- Hero Section End -->
 
-    <section class="aboutus-section spad">
-        <div class="container">
+    <div class="aboutus-section spad">
+        <div class="container-about">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-text">
@@ -48,7 +90,7 @@
                             где нетронутая природа в сочетании с горным воздухом создает атмосферу настоящего отдыха
                             и умиротворения.</p>
                         <p>Окруженные лесом, 8 наших домиков, как трехместных, так и четырехместных, возвышаются на берегу реки Чемал, предоставляя посетителям захватывающие виды и уникальную возможность насладиться пением птиц, шумом реки и ароматом хвои прямо у порога своего жилища.</p>
-                        <a href="{% url 'about-us' %}" class="primary-btn about-btn">Read More</a>
+                        <a href="{% url 'about-us' %}" class="about-btn">Читать больше</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -61,11 +103,13 @@
                                 <img src="{% static 'img/about/IMG_9889.jpg' %}" alt="">
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
-    </section>
-    
+    </div>
+ 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
 {% endblock %}
                             
