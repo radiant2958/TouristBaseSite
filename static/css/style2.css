@@ -1,0 +1,625 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+	font-family: "Cabin", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-smooth: antialiased;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	color: #111111;
+	font-weight: 400;
+	font-family: "Lora", serif;
+}
+h1 {
+	font-size: 70px;
+}
+h2 {
+	font-size: 36px;
+}
+h3 {
+	font-size: 30px;
+}
+h4 {
+	font-size: 24px;
+}
+h5 {
+	font-size: 18px;
+}
+h6 {
+	font-size: 16px;
+}
+.col-log-6 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.header-section.header-normal .menu-item {
+	-webkit-box-shadow: 0px 12px 15px rgba(36, 11, 12, 0.05);
+	box-shadow: 0px 12px 15px rgba(244, 22, 29, 0.05);
+}
+.header-section{
+    display: flex;
+    flex-direction: column;
+
+}
+.top-nav {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border-bottom: 1px solid rgba(229, 127, 25, 0.8);
+    width: 100%;
+    height: 52px;
+    margin-top: 10px;
+    
+}
+
+
+
+
+.top-nav .container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    max-width: 1200px; 
+    padding: 0 15px; 
+    
+  
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+      
+}
+
+
+.tn-left {
+    display: flex;
+    align-items: center; 
+    padding-left: 0; 
+    margin-right: 500px;
+   
+}
+
+.tn-left li {
+    display: flex;
+    align-items: center; 
+    font-size: 16px;
+    color: #19191a;
+    margin-right: 64px; 
+    position: relative; 
+}
+
+.tn-left li:after {
+    content: "";
+    position: absolute;
+    right: -32px;
+    top: 50%;
+    transform: translateY(-50%); 
+    width: 1px;
+    height: 24px; 
+    background: rgba(229, 127, 25, 0.8)
+}
+
+.tn-left li:last-child:after {
+    display: none;
+}
+
+.tn-right {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-end; 
+   
+	
+}
+
+.top-social a {
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-right: 20px;
+    
+}
+
+.top-social  img {
+    width: 33px;
+    height: auto;
+    align-items: center; 
+    justify-content: center; 
+    display: inline-block;
+    background-color: rgba(229, 127, 25, 0.8);   
+}
+.top-nav .tn-right .language-option .flag-dropdown ul li a:hover {
+	color:#e18611;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+}
+.container-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%; 
+    max-width: 1200px; 
+    margin: auto;
+    
+    
+}
+.logo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 12px;
+    gap: 10px;
+
+}
+.logo img{
+   
+    width: 51px; 
+    height: auto; 
+    padding: 2px;
+    
+
+}
+.logo h4{
+    color:#e18611;
+    font-weight: bold;
+    
+}
+.nav-menu ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+    gap: 20px;
+}
+.nav-menu ul li a {
+    display: inline-block; 
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+    transition: border-bottom 0.2s ease-in-out;
+    font-size: 16px;
+    padding: 4px;
+     
+}
+.nav-menu ul li a:hover,
+.nav-menu ul li.active a {
+    font-weight: bold;
+    border-bottom: 2px solid #e18611; /* Добавляем подчеркивание при наведении и для активного элемента */
+}
+
+
+
+.nav-menu ul li:last-child {
+    margin-right: 0; 
+}
+
+.footer-section {
+    background: #f8f9fa; 
+    padding: 20px 0; 
+}
+
+.container-footer {
+    
+    align-items: flex-start;
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    margin: auto; /* Центрирование контейнера */
+    padding: 0 15px; /* Отступы от краёв контейнера */
+    gap: 250px;
+}
+
+.ft-about, .col-lg-3 {
+    display: flex;
+    flex-direction: column; /* Элементы внутри располагаются сверху вниз */
+}
+
+.logo, .fa-social, .ft-contact, .co-text {
+    margin-bottom: 15px; /* Отступ между подклассами */
+}
+.ft-about .logo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+
+
+}
+.ft-about .logo img{
+    width: 70px;
+    height: 70px;
+}
+.fa-social {
+    display: flex; /* Иконки социальных сетей рядом друг с другом */
+    gap: 10px; /* Расстояние между иконками */
+}
+.ft-contact h6{
+    margin-bottom: 20px;
+}
+.ft-contact ul {
+    list-style-type: none; /* Убираем стандартные маркеры списка */
+    padding: 0; /* Убираем отступы списка */
+    margin: 0; /* Убираем внешние отступы списка */
+    line-height: 1.6;
+}
+
+.ft-contact ul li {
+    margin-bottom: 5px; /* Расстояние между контактными данными */
+}
+
+.ft-contact ul li:last-child {
+    margin-bottom: 0; /* У последнего элемента списка нет отступа снизу */
+}
+/* Для иконок социальных сетей */
+.fa-social a img {
+    width: 41px; /* Ширина иконок */
+    height: auto; /* Автоматическая высота иконок */
+    background-color:#e18611;
+}
+.co-text {
+    font-size: 14px; /* Размер шрифта для копирайта */
+    text-align: right; /* Выравниваем текст по правому краю */
+    width: 100%; /* Занимаем всю доступную ширину, чтобы текст оказался вправо */
+    margin-top: 20px;
+    
+}
+
+/* Если вам нужно стилизовать ссылку */
+.co-text a {
+    color: #000; /* Цвет ссылки */
+    text-decoration: none; /* Убрать подчёркивание */
+    margin-right: 50px;
+
+}
+.hero-section {
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 100px 
+}
+
+.hero-section .container {
+	position: relative;
+	z-index: 5;
+}
+.hero-text {
+	padding-top: 145px;
+}
+.hero-text h1 {
+	font-size: 80px;
+	line-height: 90px;
+	color: #e18611;
+    text-shadow: -3px -3px 0 #f3f1ee, 3px -3px 0  #f3f1ee, -3px 3px 0 #f3f1ee, 3px 3px 0 #f3f1ee;
+	margin-bottom: 16px;
+    
+}
+.hero-text p {
+	font-size: 24px;
+    font-weight: bold;
+	color: hsl(0, 0%, 100%);
+    text-shadow: -3px -3px 0 #b0711d, 3px -3px 0  #b0711d, -3px 3px 0 #b0711d, 3px 3px 0 #b0711d;
+	line-height: 28px;
+	margin-bottom: 45px;
+}
+.booking-form {
+    background: #ffffff;
+    padding: 44px 40px 50px 40px;
+    border-radius: 4px;
+}
+.booking-form h4 {
+    margin-bottom: 20px; 
+
+}
+.booking-form input[type="text"], 
+.booking-form input[type="date"], 
+.booking-form input[type="number"] {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ebebeb; 
+    border-radius: 4px; 
+    font-size: 16px; 
+}
+
+.booking-form label {
+    display: block; 
+    margin-bottom: 5px; 
+    color: #211f1e; 
+    font-size: 18px;
+}
+
+
+.booking-form button[type="submit"] {
+    display: block; 
+    margin: 0px auto; 
+    background-color: #e18611; 
+    color: white; 
+    border: none; 
+    padding: 10px 15px; 
+    margin-top: 20px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    border-radius: 4px; 
+    transition: background-color 0.3s; 
+}
+
+
+.booking-form button[type="submit"]:hover {
+    background-color: #b3735a;
+}
+
+.about-text {
+	text-align: center;
+	padding: 35px 100px;
+}
+
+.container-about{
+    padding: 15px; /* Увеличиваем внутренние отступы */
+    display: flex; /* Используем flex для лучшего контроля над расположением элементов */
+    align-items: center; /* Выравниваем элементы по центру по вертикали */
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 15px 15px 14px 15px;
+
+}
+.about-text p {
+	color: #595960;
+	font-weight: 500;
+}
+.about-text p.f-para {
+	margin-bottom: 10px;
+}
+.about-text p.s-para {
+	margin-bottom: 35px;
+}
+
+.about-btn {
+	font-weight: bold; /* Сделать текст жирным */
+    color: #e18611; /* Цвет текста */
+    text-decoration: none;
+}
+.about-pic img {
+	width: 100%;
+    height: auto;
+}
+
+.services-section {
+	padding-bottom: 60px;
+	border-top: 1px solid #e5e5e5;
+}
+.services-section .section-title {
+	margin-bottom: 36px;
+}
+.service-item {
+	text-align: center;
+	padding: 30px 35px 18px;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.service-item:hover {
+	background: #dfa974;
+}
+.service-item:hover i {
+	color: #ffffff;
+}
+.service-item:hover h4 {
+	color: #ffffff;
+}
+.service-item:hover p {
+	color: #ffffff;
+}
+.service-item i {
+	display: inline-block;
+	color: #dfa974;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.service-item h4 {
+	color: #19191a;
+	font-size: 22px;
+	margin-bottom: 15px;
+	margin-top: 10px;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.service-item p {
+	color: #707079;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+/* страница о домах */
+ 
+.bread-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    padding: 20px 0; 
+}
+.brea-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button-option {
+    text-align: center;
+}
+.button-option a{
+    color: #e18611;
+}
+
+.rooms-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: auto auto; 
+    grid-gap: 20px; 
+    padding: 30px 5px;
+}
+
+.room {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  
+}
+
+.room img {
+    width: 70%; 
+    height: auto; 
+}
+.room-text {
+    width: 70%;
+    text-align: left; 
+}
+.room-text a{
+    color: #e18611;
+}
+/* подробней о домах */
+.room-details {
+    
+  
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: auto auto;
+    grid-gap: 10px;
+    
+}
+
+.conteiner-room {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.details-item{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 200px); 
+    gap: 5px;
+
+
+}
+.details-item img{
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.conteiner-room room-text{
+    width: 100%;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); 
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.modal-content img {
+    width: 100%;
+}
+
+.close {
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.col-lg-4 {
+    width: 100%;
+    margin-left: 100px; 
+}
+/* О нас */
+.ap-title, .ap-services {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+}
+.ap-title {
+    background-color: #f0f0f0;
+}
+.ap-services {
+    background-color:#e18611;
+}
+.ap-service-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+.col-lg-5 offset-lg-1 h2{
+    color: #e9aa58;
+}
+.ap-title h2{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.ap-services h2{
+    font-size: 24px;
+    font-weight: bold;
+}
+/* контакты  */
+.contact-text {
+    text-align: center; 
+    width: 80%; 
+    margin: 0 auto; /* Добавлено для центрирования */
+}
+
+.contact-text table {
+    width: auto; 
+    border-collapse: collapse; 
+    margin: 0 auto; /* Добавлено для центрирования */
+}
+
+.contact-text td {
+    padding: 4px;
+}
+
+.c-o {
+    font-weight: bold; 
+}

@@ -17,12 +17,9 @@ venv.bak/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-media/
-staticfiles/
 
-# Static (collected in prod)
-static/
-!static/src/   # если у тебя есть исходники CSS/JS, оставляем их
+
+
 
 # IDE & OS files
 .idea/
@@ -69,8 +66,6 @@ docs/_build/
 tmp/
 .env
 *.env
-media/
-staticfiles/
 __pycache__/
 *.pyc
 .envrc
