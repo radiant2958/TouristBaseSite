@@ -5,7 +5,6 @@ async-timeout==4.0.3
 attrs==23.1.0
 charset-normalizer==3.3.0
 Django==4.2.14
-
 frozenlist==1.4.0
 idna==3.4
 iniconfig==2.0.0
@@ -22,3 +21,5 @@ yarl==1.9.2
 psycopg2-binary==2.9.9
 django-debug-toolbar==4.4.6
 gunicorn==21.2.0
+pytest-asyncio==0.23.7
+aioresponses==0.7.6
