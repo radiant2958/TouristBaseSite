@@ -1,7 +1,6 @@
+from django.shortcuts import redirect, render
 
-from django.shortcuts import render, redirect
 from .forms import BookingForm
-
 
 
 def format_booking_message(booking):

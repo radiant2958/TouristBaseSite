@@ -1,8 +1,11 @@
-from base.models import Client
 from django.contrib import messages
+
+from base.models import Client
+
 
 def check_client_exists(phone):
     return Client.objects.filter(phone=phone).exists()
+
 
 def create_client(name, phone):
     message1 = ""
