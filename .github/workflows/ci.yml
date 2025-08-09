@@ -8,6 +8,7 @@ jobs:
       DJANGO_SETTINGS_MODULE: base_backend.settings
       SECRET_KEY: test-secret
       DEBUG: "1"
+      USE_SQLITE: "1"   # <- добавили
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
