@@ -75,3 +75,8 @@ coverage.xml
 htmlcov/
 
 .DS_Store
+
+# macOS
+# coverage2
+.coverage
+
