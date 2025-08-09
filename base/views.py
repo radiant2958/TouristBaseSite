@@ -3,7 +3,6 @@ import os
 
 from django.contrib import messages
 from django.shortcuts import redirect, render
-from django.template import RequestContext
 from dotenv import load_dotenv
 
 from base.bookings.forms import BookingForm
@@ -35,9 +34,7 @@ def title_base(request):
             booking.save()
             try:
                 asyncio.run(send_message_to_telegram(CHAT_ID, final_message, TOKEN))
-                messages.success(
-                    request, "Бронирование успешно создано и сообщение отправлено."
-                )
+                messages.success(request, "Бронирование успешно создано и сообщение отправлено.")
             except Exception as e:
                 messages.error(request, f"Ошибка при отправке сообщения: {e}")
 

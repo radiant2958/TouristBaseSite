@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("base", "0003_booking_client_alter_booking_guests_and_more"),
     ]
@@ -32,8 +31,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="client",
             name="phone",
-            field=models.CharField(
-                max_length=15, unique=True, verbose_name="Номер телефона"
-            ),
+            field=models.CharField(max_length=15, unique=True, verbose_name="Номер телефона"),
         ),
     ]

@@ -1,5 +1,4 @@
 import os
-import posixpath
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,9 +19,7 @@ def getenv_bool(name, default=False):
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-insecure-key")
 DEBUG = getenv_bool("DEBUG", True)
 ALLOWED_HOSTS = [
-    h.strip()
-    for h in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
-    if h.strip()
+    h.strip() for h in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",") if h.strip()
 ]
 
 
@@ -49,15 +46,12 @@ MIDDLEWARE = [
     # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 if DEBUG:
-    try:
-        import debug_toolbar
+    from importlib.util import find_spec
 
+    if find_spec("debug_toolbar") is not None:
         INSTALLED_APPS += ["debug_toolbar"]
         MIDDLEWARE.insert(0, "debug_toolbar.middleware.DebugToolbarMiddleware")
         INTERNAL_IPS = ["127.0.0.1", "localhost", "0.0.0.0"]
-        # если в Docker не видно тулбар, добавь сюда IP хоста/сети, например "172.17.0.1"
-    except ImportError:
-        pass
 
 ROOT_URLCONF = "base_backend.urls"
 WSGI_APPLICATION = "base_backend.wsgi.application"

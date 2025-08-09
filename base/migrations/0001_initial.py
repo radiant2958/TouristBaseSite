@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -92,9 +91,7 @@ class Migration(migrations.Migration):
                 ("content", models.TextField(verbose_name="Содержание")),
                 (
                     "pub_date",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Дата публикации"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Дата публикации"),
                 ),
                 (
                     "author",

@@ -1,0 +1,15 @@
+[flake8]
+max-line-length = 100
+extend-ignore = E203
+exclude =
+    .git,
+    __pycache__,
+    .venv,
+    venv,
+    staticfiles,
+    media,
+    migrations,
+    .mypy_cache,
+    .pytest_cache
+per-file-ignores =
+    base/tests/*: F401

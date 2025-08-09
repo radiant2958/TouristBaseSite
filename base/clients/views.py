@@ -1,5 +1,3 @@
-from django.contrib import messages
-
 from base.models import Client
 
 

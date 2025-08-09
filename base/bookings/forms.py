@@ -30,9 +30,7 @@ class BookingForm(forms.ModelForm):
 
     def save(self, commit=True):
         mandatory_fields = ["name", "phone", "date_in", "date_out", "guests", "rooms"]
-        missing_fields = [
-            field for field in mandatory_fields if not self.cleaned_data.get(field)
-        ]
+        missing_fields = [field for field in mandatory_fields if not self.cleaned_data.get(field)]
         if missing_fields:
             error_message = _("Следующие поля обязательны к заполнению: ") + ", ".join(
                 missing_fields

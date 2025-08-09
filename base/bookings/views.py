@@ -1,8 +1,3 @@
-from django.shortcuts import redirect, render
-
-from .forms import BookingForm
-
-
 def format_booking_message(booking):
     return (
         f"Имя: {booking.name}\n"
