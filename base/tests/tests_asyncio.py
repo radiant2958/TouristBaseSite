@@ -1,9 +1,8 @@
 import pytest
 from aioresponses import aioresponses
 
-from base.telegram_bot.tasks import (
-    send_message_to_telegram,
-)  # Импортируйте вашу функцию
+from base.telegram_bot.tasks import \
+    send_message_to_telegram  # Импортируйте вашу функцию
 
 
 @pytest.mark.asyncio
