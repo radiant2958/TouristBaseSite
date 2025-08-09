@@ -1,4 +1,5 @@
 import asyncio
+
 # Использование AsyncMock для асинхронного мокирования
 from unittest.mock import AsyncMock, patch
 
