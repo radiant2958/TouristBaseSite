@@ -1,0 +1,21 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      DJANGO_SETTINGS_MODULE: base_backend.settings
+      SECRET_KEY: test-secret
+      DEBUG: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: pip install pytest pytest-django pytest-cov black isort flake8
+      - run: black --check .
+      - run: isort --check-only .
+      - run: flake8 .
+      - run: pytest -q --cov=base --cov-report=xml
