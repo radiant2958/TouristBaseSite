@@ -1,9 +1,24 @@
 # 🏡 Tourist Base Website — "Usadba na Chemalke"
 
+**TourBaseWeb** is a production-ready web application developed for the tourist base **"Усадьба на Чемалке"**.  
+
+![CI](https://img.shields.io/github/actions/workflow/status/radiant2958/TouristBaseSite/ci.yml?branch=main)
+![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Django](https://img.shields.io/badge/Django-4.2-green)
+
+
 A Django-based web application for the tourist base **"Usadba na Chemalke"**.  
 The website provides information about available rooms, services, news, and events,  
 and allows users to submit booking requests online. It also includes Telegram bot integration  
 to notify managers about new booking requests.
+
+---
+## 🌐 Production Website
+
+The project is deployed and actively used by clients for real bookings.
+
+- URL (Unicode): https://усадьбаначемалке.рф  
 
 ---
 
