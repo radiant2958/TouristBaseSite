@@ -28,6 +28,7 @@ to notify managers about new booking requests.
 ---
 
 ## 📂 Project Structure
+```
 TourBaseWeb/
 ├── base/ # Main application logic
 │ ├── bookings/ # Booking-related views, forms, and models
@@ -57,6 +58,7 @@ TourBaseWeb/
 ├── .pre-commit-config.yaml
 ├── .flake8
 └── README.md
+```
 
 ## 🚀 Getting Started
 
@@ -103,3 +105,4 @@ Tests are automatically run on every push via GitHub Actions.
 ```
 docker-compose up --build
 ```
+
