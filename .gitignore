@@ -80,3 +80,7 @@ htmlcov/
 # coverage2
 .coverage
 
+
+# coverage
+.coverage*
+
